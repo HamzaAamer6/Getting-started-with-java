@@ -11,10 +11,11 @@ public class Part4 {
         URLResource UR;
         UR= new URLResource("https://www.dukelearntoprogram.com//course2/data/manylinks.html");
         for (String Line:UR.words()){
-            int ptr=Line.indexOf("youtube.com");
+            int ptr=Line.toLowerCase().indexOf("youtube.com");
                 if(ptr!=-1){
                     int start=Line.lastIndexOf("\"",ptr);
                     int end=Line.indexOf("\"",ptr);
+                    if(end==-1 || start==-1)continue;
                     end++;
                     System.out.println(Line.substring(start,end));
                 }
